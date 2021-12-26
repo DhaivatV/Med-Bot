@@ -107,7 +107,13 @@ symptoms.fillna(133, inplace=True)
 symptoms
 
 
+# In[ ]:
 
+
+
+
+
+# In[ ]:
 
 
 
