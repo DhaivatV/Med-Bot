@@ -4,11 +4,6 @@
 # In[1]:
 
 
-import tensorflow as tf
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras import Sequential
-from tensorflow.keras .optimizers import Adam
 import pandas as pd
 import numpy as np
 import numpy_indexed as npi
