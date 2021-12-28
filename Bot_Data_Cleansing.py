@@ -41,7 +41,7 @@ symp_dict= df['Symptom'].to_dict()
 symp_dict
 new_dict = dict([(value, key) for key, value in symp_dict.items()])
 new_dict['dischromic _patches']=102
-
+symp_dict
 
 
 # In[6]:
@@ -102,10 +102,44 @@ symptoms.fillna(133, inplace=True)
 symptoms
 
 
-# In[ ]:
+# In[9]:
 
 
+symptoms.to_csv('cleansed_symp_data')
 
+
+# In[10]:
+
+
+dis_dict= symp_data['Disease'].to_dict()
+dis_dict
+temp = []
+res_dict = dict()
+for key, val in dis_dict.items():
+    if val not in temp:
+        temp.append(val)
+        res_dict[key] = val
+
+dis_dict
+
+
+# In[11]:
+
+
+new_res_dict = dict([(value, key) for key, value in res_dict.items()])
+new_res_dict
+
+
+# In[12]:
+
+
+Disease['Disease']=Disease['Disease'].map(new_res_dict)
+
+
+# In[14]:
+
+
+Disease.to_csv('Disease_data', index=False)
 
 
 # In[ ]:
