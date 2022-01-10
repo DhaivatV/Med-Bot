@@ -5,14 +5,10 @@
 
 
 import pandas as pd
-import tensorflow as tf
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras import Sequential
-from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import xgboost as xgb
+from joblib import dump, load
 
 
 # In[2]:
@@ -34,12 +30,6 @@ diseases.tail()
 symptoms.head()
 
 
-# In[ ]:
-
-
-
-
-
 # In[5]:
 
 
@@ -48,8 +38,6 @@ x_train, x_test, y_train, y_test= train_test_split(symptoms, diseases, test_size
 
 # In[6]:
 
-
-import xgboost as xgb
 
 train = xgb.DMatrix(x_train, label=y_train)
 test = xgb.DMatrix(x_test, label=y_test)
@@ -89,6 +77,18 @@ print(predictions)
 
 accu= ((accuracy_score(y_test, predictions))*100)
 print(f'Accuracy:{accu} %')
+
+
+# In[12]:
+
+
+filename= 'Med_Bot.model'
+
+
+# In[13]:
+
+
+model.save_model(filename)
 
 
 # In[ ]:
