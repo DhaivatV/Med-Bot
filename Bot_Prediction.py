@@ -263,7 +263,7 @@ def output_dis(pred):
 output_dis(pred)
 
 
-# In[ ]:
+
 
 print(new_inpt_dict.get('itching'))
 
