@@ -33,7 +33,6 @@ for x in df['Symptom']:
     print(x)
 
 
-# In[5]:
 
 
 df.drop('weight', axis=1)
